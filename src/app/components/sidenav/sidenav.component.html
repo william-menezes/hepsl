@@ -1,0 +1,53 @@
+<mat-nav-list>
+  <div class="logo py-4">
+    <img src="../../../assets/img/brand.png" alt="SoftLeader Logo">
+  </div>
+  <mat-divider></mat-divider>
+  <h2 matSubheader class="mt-2">APPLICATIONS</h2>
+
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/home">
+    <mat-icon>home</mat-icon> Home
+  </a>
+
+  <mat-accordion>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon>people</mat-icon> Pessoas
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard">
+        <mat-icon>person_add_alt_1</mat-icon> Adicionar pessoa
+      </a>
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard">
+        <mat-icon>person_remove</mat-icon> Remover pessoa
+      </a>
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard">
+        <mat-icon>manage_accounts</mat-icon> Editar pessoa
+      </a>
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard">
+        <mat-icon>person_search</mat-icon> Buscar pessoa
+      </a>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon>support_agent</mat-icon> Chamados
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard">
+        <mat-icon>add</mat-icon> Abrir chamado
+      </a>
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard">
+        <mat-icon>remove</mat-icon> Remover chamado
+      </a>
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard">
+        <mat-icon>settings</mat-icon> Editar chamado
+      </a>
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard">
+        <mat-icon>search</mat-icon> Buscar chamados
+      </a>
+    </mat-expansion-panel>
+  </mat-accordion>
+</mat-nav-list>
