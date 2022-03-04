@@ -1,5 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+/* @import '@angular/material/theming';
+@import './assets/scss/variables.scss';
+@include mat-core();
 
+$custom-app-primary: $primary;
+$custom-app-secondary: $secundary;
+$custom-app-warn: mat-palette($mat-red);
+
+$custom-theme: mat-light-theme($custom-app-primary, $custom-app-secondary, $custom-app-warn);
+
+@include angular-material-theme($custom-theme); */
 
 
 html, body { height: 100%; }

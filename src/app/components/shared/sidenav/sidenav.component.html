@@ -16,18 +16,18 @@
           <mat-icon>people</mat-icon> Pessoas
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <a mat-list-item routerLinkActive="list-item-active" routerLink="/add-person">
-        <mat-icon>person_add_alt_1</mat-icon> Adicionar pessoa
+      <a mat-list-item class="ps-2" routerLinkActive="list-item-active" routerLink="/add-person">
+        Adicionar pessoa
       </a>
-      <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard">
-        <mat-icon>person_remove</mat-icon> Remover pessoa
+      <a mat-list-item class="ps-2" routerLinkActive="list-item-active" routerLink="/list-person">
+        Listar pessoas
       </a>
-      <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard">
+      <!--a mat-list-item class="ps-2" routerLinkActive="list-item-active" routerLink="/dashboard">
         <mat-icon>manage_accounts</mat-icon> Editar pessoa
       </a>
-      <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard">
+      <a-- mat-list-item class="ps-2" routerLinkActive="list-item-active" routerLink="/dashboard">
         <mat-icon>person_search</mat-icon> Buscar pessoa
-      </a>
+      </a-->
     </mat-expansion-panel>
 
     <mat-expansion-panel hideToggle>
@@ -36,18 +36,18 @@
           <mat-icon>support_agent</mat-icon> Chamados
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard">
-        <mat-icon>add</mat-icon> Abrir chamado
+      <a mat-list-item class="ps-2" routerLinkActive="list-item-active" routerLink="/open-call">
+        Abrir chamado
       </a>
-      <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard">
-        <mat-icon>remove</mat-icon> Remover chamado
+      <a mat-list-item class="ps-2" routerLinkActive="list-item-active" routerLink="/list-call">
+        Listar chamados
       </a>
-      <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard">
+      <!--a mat-list-item class="ps-2" routerLinkActive="list-item-active" routerLink="/">
         <mat-icon>settings</mat-icon> Editar chamado
-      </a>
-      <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard">
+      </!--a>
+      <a-- mat-list-item class="ps-2" routerLinkActive="list-item-active" routerLink="/">
         <mat-icon>search</mat-icon> Buscar chamados
-      </a>
+      </a-->
     </mat-expansion-panel>
   </mat-accordion>
 </mat-nav-list>
