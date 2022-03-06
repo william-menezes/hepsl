@@ -16,6 +16,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+
 
 @NgModule({
   declarations: [],
@@ -30,8 +33,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatInputModule,
     MatListModule,
     MatMenuModule,
+    MatPaginatorModule,
     MatSelectModule,
     MatSidenavModule,
+    MatSortModule,
     MatTableModule,
     MatTabsModule,
     MatToolbarModule,
@@ -46,8 +51,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatInputModule,
     MatListModule,
     MatMenuModule,
+    MatPaginatorModule,
     MatSelectModule,
     MatSidenavModule,
+    MatSortModule,
     MatTableModule,
     MatTabsModule,
     MatToolbarModule,

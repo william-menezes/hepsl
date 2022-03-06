@@ -1,0 +1,21 @@
+@import '../../../assets/scss/variables.scss';
+
+.full-width-table {
+  width: 100%;
+}
+
+.mat-header-cell {
+  color: $icon-table-hover;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: #2c334417;
+  border-radius: 2px;
+}
+
+.icon {
+  color: $icon-table;
+
+  &:hover {
+    color: $icon-table-hover;
+  }
+}
