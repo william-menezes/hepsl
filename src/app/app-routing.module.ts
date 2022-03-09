@@ -1,20 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ListPeopleComponent } from './people/list-people/list-people.component';
-import { AddPeopleComponent } from './people/add-people/add-people.component';
-import { EditPersonComponent } from './people/edit-person/edit-person.component';
-import { ViewPersonComponent } from './people/view-person/view-person.component';
 
 const routes: Routes = [
-  { path: 'list-people', component: ListPeopleComponent },
-  { path: 'add-person', component: AddPeopleComponent },
-  { path: 'edit-person', component: EditPersonComponent },
-  { path: 'view-person', component: ViewPersonComponent },
+  {
+    path: 'people',
+    loadChildren: () =>
+    import('./people/people.module').then((m) => m.PeopleModule),
+  },
+  {
+    path: 'calls',
+    loadChildren: () => import('./call/call.module').then((m) => m.CallModule),
+  },
+  { path: '', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

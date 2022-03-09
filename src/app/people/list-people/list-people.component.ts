@@ -22,15 +22,7 @@ export class ListPeopleComponent implements OnInit {
 
   //Funções de navegação
   goToAddPerson(): void {
-    this.route.navigate(['./add-person']);
-  }
-
-  goToViewPerson(): void {
-    this.route.navigate(['./view-person']);
-  }
-
-  goToEditPerson(): void {
-    this.route.navigate(['./edit-person']);
+    this.route.navigate(['./people/create']);
   }
 
   //Funções de requisições Http

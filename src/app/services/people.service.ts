@@ -15,7 +15,14 @@ export class PeopleService {
 
   //Retorna todas as pessoas cadastradas
   getAll(): Observable<Person[]> {
-    return this.http.get<Person[]>(this.URL);
+    return this.http.get<Person[]>(this.URL).pipe(catchError(this.handleError));
+  }
+
+  //Retorna uma pessoa por ID
+  getById(id: string): Observable<Person> {
+    return this.http
+      .get<Person>(`${this.URL}/${id}`)
+      .pipe(catchError(this.handleError));
   }
 
   //Adiciona uma pessoa
@@ -26,7 +33,7 @@ export class PeopleService {
   }
 
   //Manipulação de erros
-  handleError(error: HttpErrorResponse):Observable<any> {
+  handleError(error: HttpErrorResponse): Observable<any> {
     let errorMessage = '';
 
     if (error.error instanceof ErrorEvent) {

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { PeopleService } from './../../services/people.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormArray, Validators, NgForm } from '@angular/forms';
@@ -36,6 +37,7 @@ export class AddPeopleComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private peopleService: PeopleService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {}
@@ -54,6 +56,8 @@ export class AddPeopleComponent implements OnInit {
   //Limpar as informações digitadas no formulário
   resetForm() {
     this.form.resetForm();
+
+    this.router.navigate(['/people/list'])
   }
 
   //Função para adionar novo contato

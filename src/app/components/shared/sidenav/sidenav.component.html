@@ -5,7 +5,7 @@
   <mat-divider></mat-divider>
   <h2 matSubheader class="mt-2">APPLICATIONS</h2>
 
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/home">
+  <a mat-list-item routerLink="" routerLinkActive="list-item-active">
     <mat-icon>home</mat-icon> Home
   </a>
 
@@ -16,18 +16,12 @@
           <mat-icon>people</mat-icon> Pessoas
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <a mat-list-item class="ps-2" routerLinkActive="list-item-active" routerLink="/add-person">
+      <a mat-list-item class="ps-2" routerLink="/people/create" routerLinkActive="list-item-active">
         Adicionar pessoa
       </a>
-      <a mat-list-item class="ps-2" routerLinkActive="list-item-active" routerLink="/list-people">
+      <a mat-list-item class="ps-2" routerLink="people/list" routerLinkActive="list-item-active">
         Listar pessoas
       </a>
-      <!--a mat-list-item class="ps-2" routerLinkActive="list-item-active" routerLink="/dashboard">
-        <mat-icon>manage_accounts</mat-icon> Editar pessoa
-      </a>
-      <a-- mat-list-item class="ps-2" routerLinkActive="list-item-active" routerLink="/dashboard">
-        <mat-icon>person_search</mat-icon> Buscar pessoa
-      </a-->
     </mat-expansion-panel>
 
     <mat-expansion-panel hideToggle>
@@ -36,18 +30,12 @@
           <mat-icon>support_agent</mat-icon> Chamados
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <a mat-list-item class="ps-2" routerLinkActive="list-item-active" routerLink="/open-call">
+      <a mat-list-item class="ps-2" routerLink="/open-call" routerLinkActive="list-item-active">
         Abrir chamado
       </a>
-      <a mat-list-item class="ps-2" routerLinkActive="list-item-active" routerLink="/list-call">
+      <a mat-list-item class="ps-2" routerLink="/list-call" routerLinkActive="list-item-active">
         Listar chamados
       </a>
-      <!--a mat-list-item class="ps-2" routerLinkActive="list-item-active" routerLink="/">
-        <mat-icon>settings</mat-icon> Editar chamado
-      </!--a>
-      <a-- mat-list-item class="ps-2" routerLinkActive="list-item-active" routerLink="/">
-        <mat-icon>search</mat-icon> Buscar chamados
-      </a-->
     </mat-expansion-panel>
   </mat-accordion>
 </mat-nav-list>
