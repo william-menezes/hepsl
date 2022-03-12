@@ -44,8 +44,6 @@ export class ViewPersonComponent implements OnInit {
 
     this.peopleService.getById(id).subscribe((person) => {
       this.person = person;
-      console.log(this.person);
-      console.log(this.person.contacts);
 
       this.person.contacts?.forEach(() => {
         this.addContact();

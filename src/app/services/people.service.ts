@@ -32,6 +32,13 @@ export class PeopleService {
       .pipe(catchError(this.handleError));
   }
 
+  //Edita uma pessoa
+  editPerson(id: string, person: Person): Observable<Person> {
+    return this.http
+    .put<Person>(`${this.URL}/${id}`, person)
+    .pipe(catchError(this.handleError));
+  }
+
   //Manipulação de erros
   handleError(error: HttpErrorResponse): Observable<any> {
     let errorMessage = '';
