@@ -1,7 +1,16 @@
 /* mat-tab-body-content {
   padding: 0;
 } */
+@import '../../../assets/scss/variables.scss';
 
 mat-divider {
   position: relative !important;
+}
+
+.icon {
+  color: $icon-table;
+
+  &:hover {
+    color: $icon-table-hover;
+  }
 }

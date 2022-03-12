@@ -9,9 +9,9 @@
           <mat-form-field class="w-100" appearance="outline">
             <mat-label>Nome</mat-label>
             <input matInput formControlName="name">
-            <mat-error *ngIf="formPerson.controls.name.hasError('required')">
+            <!-- <mat-error *ngIf="formPerson.controls.name.hasError('required')">
               Digite um nome
-            </mat-error>
+            </mat-error> -->
           </mat-form-field>
         </div>
       </div>
@@ -26,9 +26,9 @@
               <mat-option value="colaborador">Colaborador</mat-option>
               <mat-option value="usuario">Usuário</mat-option>
             </mat-select>
-            <mat-error *ngIf="formPerson.controls.typePerson.hasError('required')">
+            <!-- <mat-error *ngIf="formPerson.controls.typePerson.hasError('required')">
               Selecione um tipo de pessoa
-            </mat-error>
+            </mat-error> -->
           </mat-form-field>
         </div>
 
@@ -37,9 +37,9 @@
           <mat-form-field class="w-100" appearance="outline">
             <mat-label>CPF/CNPJ</mat-label>
             <input matInput formControlName="cpfCNPJ">
-            <mat-error *ngIf="formPerson.controls.cpfCNPJ.hasError('required')">
+            <!-- <mat-error *ngIf="formPerson.controls.cpfCNPJ.hasError('required')">
               Digite um número de documento válido
-            </mat-error>
+            </mat-error> -->
           </mat-form-field>
         </div>
       </div>
@@ -58,11 +58,12 @@
 
               <div class="container-fluid mt-3 p-0">
 
-                <ng-container *ngFor="let contact of contacts.controls; let i = index">
-                  <div class="row" [formGroupName]="i">
+                <ng-container *ngFor="let contact of contacts().controls; let contactId = index">
+
+                  <div class="row" [formGroupName]="contactId">
 
                     <!--Tipo de contato-->
-                    <div class="col-lg-4">
+                    <div class="col-md-3">
                       <mat-form-field class="w-100" appearance="outline">
                         <mat-label>Tipo de contato</mat-label>
                         <mat-select formControlName="typeContact">
@@ -73,18 +74,28 @@
                       </mat-form-field>
                     </div>
                     <!--Contato-->
-                    <div class="col-lg-4">
+                    <div class="col-md-4">
                       <mat-form-field class="w-100" appearance="outline">
                         <mat-label>Contato</mat-label>
                         <input matInput formControlName="contact">
                       </mat-form-field>
                     </div>
                     <!--Nome do contato-->
-                    <div class="col-lg-4">
+                    <div class="col-md-3">
                       <mat-form-field class="w-100" appearance="outline">
                         <mat-label>Nome do contato</mat-label>
                         <input matInput formControlName="nameContact">
                       </mat-form-field>
+                    </div>
+                    <!--Botão de excluir contato-->
+                    <div class="col-md-2">
+                      <!-- <button mat-icon-button class="d-none d-md-block" color="warn" (click)="removeContact(contactId)">
+                        <mat-icon class="icon">close</mat-icon>
+                      </button>
+                      <button mat-raised-button class="d-block d-md-none" color="warn" (click)="removeContact(contactId)">Remover</button> -->
+
+                      <button mat-raised-button class="button-contact" color="warn"
+                        (click)="removeContact(contactId)">Remover</button>
                     </div>
                   </div>
                 </ng-container>
@@ -131,6 +142,7 @@
     </form>
   </mat-card-content>
 
-  <button mat-raised-button color="primary" class="me-2" (click)="onSubmit()" [disabled]="!formPerson.valid">Salvar</button>
+  <button mat-raised-button color="primary" class="me-2" (click)="onSubmit()"
+    [disabled]="!formPerson.valid">Salvar</button>
   <button mat-raised-button color="secondary" class="me-2" (click)="resetForm()">Cancelar</button>
 </mat-card>
