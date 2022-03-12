@@ -10,6 +10,7 @@ import { AddPeopleComponent } from './add-people/add-people.component';
 import { ListPeopleComponent } from './list-people/list-people.component';
 import { ViewPersonComponent } from './view-person/view-person.component';
 import { EditPersonComponent } from './edit-person/edit-person.component';
+import { PersonDialogComponent } from './person-dialog/person-dialog.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { EditPersonComponent } from './edit-person/edit-person.component';
     ListPeopleComponent,
     ViewPersonComponent,
     EditPersonComponent,
+    PersonDialogComponent,
   ],
   imports: [
     CommonModule,

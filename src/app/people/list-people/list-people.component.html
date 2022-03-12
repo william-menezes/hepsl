@@ -50,9 +50,13 @@
         <a routerLink="/people/edit/{{people.id}}">
           <mat-icon class="icon mx-1">edit</mat-icon>
         </a>
-        <a routerLink="/people/delete">
+        <a (click)="openDialog(people.id)" role="button">
           <mat-icon class="icon mx-1">delete</mat-icon>
         </a>
+
+        <!-- <button mat-icon-button >
+          <mat-icon class="icon mx-1">delete</mat-icon>
+        </button> -->
       </td>
     </ng-container>
 

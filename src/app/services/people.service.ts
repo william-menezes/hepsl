@@ -35,8 +35,15 @@ export class PeopleService {
   //Edita uma pessoa
   editPerson(id: string, person: Person): Observable<Person> {
     return this.http
-    .put<Person>(`${this.URL}/${id}`, person)
-    .pipe(catchError(this.handleError));
+      .put<Person>(`${this.URL}/${id}`, person)
+      .pipe(catchError(this.handleError));
+  }
+
+  //Deleta uma pessoa
+  deletePerson(id: string) {
+    return this.http
+      .delete<Person>(`${this.URL}/${id}`)
+      .pipe(catchError(this.handleError));
   }
 
   //Manipulação de erros

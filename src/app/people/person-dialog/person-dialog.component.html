@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Excluir cadastro</h1>
+
+<mat-dialog-content>
+    Deseja confirmar a exclusão do cadastro da pessoa <strong>{{person.name}}</strong>?
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-raised-button color="warn" (click)="deletePerson()" mat-dialog-close="true">Excluir</button>
+  <button mat-raised-button mat-dialog-close>Cancelar</button>
+</mat-dialog-actions>
