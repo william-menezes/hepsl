@@ -1,8 +1,8 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm, FormGroup, FormBuilder, FormArray } from '@angular/forms';
-import { Person } from 'src/app/models/person';
-import { PeopleService } from 'src/app/services/people.service';
+import { Person } from 'src/app/shared/models/person';
+import { PeopleService } from 'src/app/shared/services/people.service';
 
 @Component({
   selector: 'app-edit-person',
@@ -16,6 +16,9 @@ export class EditPersonComponent implements OnInit {
 
   //Criação do objeto pessoa
   person!: Person;
+
+  //Variável para aplicação dos pipes
+  cpfCNPJ!: string;
 
   //Criação do Formulário
   formPerson = this.formBuilder.group({

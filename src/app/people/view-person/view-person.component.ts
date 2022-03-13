@@ -1,6 +1,6 @@
 import { Router, ActivatedRoute } from '@angular/router';
-import { Person } from 'src/app/models/person';
-import { PeopleService } from './../../services/people.service';
+import { Person } from 'src/app/shared/models/person';
+import { PeopleService } from './../../shared/services/people.service';
 import { Component, OnInit } from '@angular/core';
 
 import {
@@ -18,6 +18,9 @@ import {
 })
 export class ViewPersonComponent implements OnInit {
   person!: Person;
+
+  //Variável para aplicação dos pipes
+  cpfCNPJ!: string;
 
   //Criação do formulário
   formPerson = this.formBuilder.group({

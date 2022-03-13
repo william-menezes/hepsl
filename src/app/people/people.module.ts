@@ -11,6 +11,7 @@ import { ListPeopleComponent } from './list-people/list-people.component';
 import { ViewPersonComponent } from './view-person/view-person.component';
 import { EditPersonComponent } from './edit-person/edit-person.component';
 import { PersonDialogComponent } from './person-dialog/person-dialog.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -25,11 +26,15 @@ import { PersonDialogComponent } from './person-dialog/person-dialog.component';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    PeopleRoutingModule
+    PeopleRoutingModule,
+    SharedModule,
   ],
   exports: [
     AddPeopleComponent,
-    ListPeopleComponent
+    ListPeopleComponent,
+    ViewPersonComponent,
+    EditPersonComponent,
+    PersonDialogComponent
   ]
 })
 export class PeopleModule { }

@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { PeopleService } from './../../services/people.service';
+import { PeopleService } from './../../shared/services/people.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {
   FormBuilder,
@@ -8,7 +8,7 @@ import {
   Validators,
   NgForm,
 } from '@angular/forms';
-import { Person } from 'src/app/models/person';
+import { Person } from 'src/app/shared/models/person';
 
 @Component({
   selector: 'app-add-people',
@@ -26,6 +26,9 @@ export class AddPeopleComponent implements OnInit {
     name: '',
     cpfCNPJ: '',
   };
+
+  //Variável para aplicação dos pipes
+  cpfCNPJ!: string;
 
   //Criação do Formulário
   formPerson: FormGroup;

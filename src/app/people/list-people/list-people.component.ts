@@ -1,9 +1,9 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { PeopleService } from './../../services/people.service';
+import { PeopleService } from './../../shared/services/people.service';
 
-import { Person } from 'src/app/models/person';
+import { Person } from 'src/app/shared/models/person';
 import { PersonDialogComponent } from '../person-dialog/person-dialog.component';
 
 @Component({
@@ -13,6 +13,9 @@ import { PersonDialogComponent } from '../person-dialog/person-dialog.component'
 })
 export class ListPeopleComponent implements OnInit {
   people: Person[] = [];
+
+  //Variável para aplicação dos pipes
+  cpfCNPJ!: string;
 
   displayedColumns = ['name', 'cpfCNPJ', 'typePerson', 'actions'];
 

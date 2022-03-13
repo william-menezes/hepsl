@@ -8,18 +8,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { PeopleModule } from './people/people.module';
 import { MaterialModule } from './material/material.module';
-
-import { HeaderComponent } from './components/shared/header/header.component';
-import { SidenavComponent } from './components/shared/sidenav/sidenav.component';
+import { PeopleModule } from './people/people.module';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SidenavComponent,
-    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +25,8 @@ import { SidenavComponent } from './components/shared/sidenav/sidenav.component'
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MaterialModule,
-    PeopleModule
+    PeopleModule,
+    SharedModule,
   ],
   providers: [MaterialModule, FormsModule, ReactiveFormsModule],
   bootstrap: [AppComponent],

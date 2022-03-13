@@ -31,7 +31,7 @@
     <!-- CPF/CNPJ Column -->
     <ng-container matColumnDef="cpfCNPJ" class="col-2">
       <th mat-header-cell *matHeaderCellDef>CPF/CNPJ</th>
-      <td mat-cell *matCellDef="let people">{{people.cpfCNPJ}}</td>
+      <td mat-cell *matCellDef="let people">{{people.cpfCNPJ | cpfCNPJ}}</td>
     </ng-container>
 
     <!-- Type of Person Column -->

@@ -36,7 +36,7 @@
         <div class="col-lg-6">
           <mat-form-field class="w-100" appearance="outline">
             <mat-label>CPF/CNPJ</mat-label>
-            <input matInput formControlName="cpfCNPJ" readonly>
+            <input matInput formControlName="cpfCNPJ" readonly [ngModel]="cpfCNPJ | cpfCNPJ" (ngModelChange)="cpfCNPJ=$event" maxlength="18" appOnlyNumbers>
             <!-- <mat-error *ngIf="formPerson.controls.cpfCNPJ.hasError('required')">
               Digite um número de documento válido
             </mat-error> -->

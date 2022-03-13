@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
-import { Person } from 'src/app/models/person';
-import { PeopleService } from 'src/app/services/people.service';
+import { Person } from 'src/app/shared/models/person';
+import { PeopleService } from 'src/app/shared/services/people.service';
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
