@@ -1,5 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { MaterialModule } from './../material/material.module';
+import { SharedModule } from '../shared/shared.module';
 
 import { CallRoutingModule } from './call-routing.module';
 import { AddCallComponent } from './add-call/add-call.component';
@@ -14,7 +19,11 @@ import { ListCallComponent } from './list-call/list-call.component';
   ],
   imports: [
     CommonModule,
-    CallRoutingModule
+    CallRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MaterialModule,
+    SharedModule
   ]
 })
 export class CallModule { }

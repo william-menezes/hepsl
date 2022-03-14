@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Call } from 'src/app/shared/models/call';
 
 @Component({
   selector: 'app-list-call',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-call.component.scss']
 })
 export class ListCallComponent implements OnInit {
+  call: Call[] = [];
+
+  displayedColumns = ['name', 'cpfCNPJ', 'typePerson', 'actions'];
 
   constructor() { }
 

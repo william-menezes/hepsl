@@ -1,1 +1,78 @@
-<p>edit-call works!</p>
+<mat-card class="p-4">
+  <mat-card-title class="mb-4">Editar chamado</mat-card-title>
+  <mat-card-content>
+    <form>
+      <div class="row">
+        <!--Data/hora de inclusão-->
+        <div class="col-md-3">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Data/hora de inclusão</mat-label>
+            <input matInput type="datetime-local" />
+          </mat-form-field>
+        </div>
+
+        <!--Data/hora de agendamento-->
+        <div class="col-md-3">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Data/hora de agendamento</mat-label>
+            <input matInput type="datetime-local" />
+          </mat-form-field>
+        </div>
+
+        <!--Cliente-->
+        <div class="col-md-6">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Cliente</mat-label>
+            <input matInput />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <!--Departamento-->
+        <div class="col-md-4">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Departamento</mat-label>
+            <mat-select>
+              <mat-option value="suporte">Suporte</mat-option>
+              <mat-option value="desenvolvedor">Desenvolvimento</mat-option>
+              <mat-option value="implantação">Implantação</mat-option>
+              <mat-option value="financeiro">Financeiro</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <!--Colaborador-->
+        <div class="col-md-8">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Colaborador</mat-label>
+            <input matInput />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <!--Status-->
+        <div class="col-md-4">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Status</mat-label>
+            <mat-select>
+              <mat-option value="pendente">Pendente</mat-option>
+              <mat-option value="concluido">Concluído</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <mat-form-field class="w-100" appearance="outline">
+          <mat-label>Descrição</mat-label>
+          <textarea matInput></textarea>
+        </mat-form-field>
+      </div>
+    </form>
+  </mat-card-content>
+
+  <button mat-raised-button color="primary" class="me-2">Salvar</button>
+  <button mat-raised-button color="secondary" class="me-2">Cancelar</button>
+</mat-card>
