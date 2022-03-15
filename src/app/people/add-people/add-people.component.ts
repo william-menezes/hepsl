@@ -1,6 +1,6 @@
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { PeopleService } from './../../shared/services/people.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -8,7 +8,7 @@ import {
   Validators,
   NgForm,
 } from '@angular/forms';
-import { Person } from 'src/app/shared/models/person';
+import { Person } from '../../shared/models/person';
 
 @Component({
   selector: 'app-add-people',
@@ -31,14 +31,14 @@ export class AddPeopleComponent implements OnInit {
   cpfCNPJ!: string;
 
   //Criação do Formulário
-  formPerson: FormGroup;
+  personForm: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder,
     private peopleService: PeopleService,
-    private router: Router
+    private router: Router,
+    private formBuilder: FormBuilder
   ) {
-    this.formPerson = this.formBuilder.group({
+    this.personForm = this.formBuilder.group({
       name: ['' /* [Validators.required] */],
       typePerson: ['' /* [Validators.required] */],
       cpfCNPJ: ['' /* [Validators.required] */],
@@ -54,7 +54,7 @@ export class AddPeopleComponent implements OnInit {
 
   //Pegar a propriedade contato do formulário
   contacts(): FormArray {
-    return this.formPerson.get('contacts') as FormArray;
+    return this.personForm.get('contacts') as FormArray;
   }
 
   //Criar um formgroup do tipo contato
@@ -77,18 +77,18 @@ export class AddPeopleComponent implements OnInit {
   }
 
   //Função para submeter os dados do formulário
-  onSubmit() {
-    this.person = this.formPerson.value;
+  onSubmit(): void {
+    this.person = this.personForm.value;
 
     this.peopleService.createPerson(this.person).subscribe(() => {
       this.peopleService.showMessage('Pessoa cadastrada com sucesso!');
 
-      this.form.resetForm();
+      this.resetForm();
     });
   }
 
   //Limpar as informações digitadas no formulário
-  resetForm() {
+  resetForm(): void {
     this.form.resetForm();
 
     this.router.navigate(['/people/list']);

@@ -10,20 +10,17 @@ import { CallRoutingModule } from './call-routing.module';
 import { AddCallComponent } from './add-call/add-call.component';
 import { EditCallComponent } from './edit-call/edit-call.component';
 import { ListCallComponent } from './list-call/list-call.component';
+import { DialogCallComponent } from './dialog-call/dialog-call.component';
 
 @NgModule({
-  declarations: [
-    AddCallComponent,
-    EditCallComponent,
-    ListCallComponent
-  ],
+  declarations: [AddCallComponent, EditCallComponent, ListCallComponent, DialogCallComponent],
   imports: [
     CommonModule,
     CallRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    SharedModule
-  ]
+    SharedModule,
+  ],
 })
-export class CallModule { }
+export class CallModule {}

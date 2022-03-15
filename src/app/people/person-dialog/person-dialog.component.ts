@@ -1,8 +1,9 @@
-import { Router } from '@angular/router';
-import { Person } from 'src/app/shared/models/person';
-import { PeopleService } from 'src/app/shared/services/people.service';
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+
+import { PeopleService } from 'src/app/shared/services/people.service';
+import { Person } from 'src/app/shared/models/person';
 
 @Component({
   selector: 'app-person-dialog',
@@ -28,7 +29,7 @@ export class PersonDialogComponent implements OnInit {
     this.peopleService.deletePerson(this.id).subscribe(() => {
       this.peopleService.showMessage('Pessoa excluida com sucesso!');
 
-      this.router.navigate(['/list']);
+      this.router.navigate(['people/list']);
     });
   }
 }

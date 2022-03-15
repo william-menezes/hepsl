@@ -3,55 +3,84 @@
     Chamados
   </mat-card-title>
 
+  <!--Barra de pesquisa-->
   <div class="row">
-    <div class="col-2">
+
+    <!--Filtros-->
+    <div class="col-3">
       <mat-form-field class="w-100" appearance="standard">
         <mat-label>Filtrar por</mat-label>
         <mat-select>
           <mat-option>Selecione um tipo</mat-option>
-          <mat-option value="cliente">Cliente</mat-option>
-          <mat-option value="dataHora">Data/hora</mat-option>
-          <mat-option value="departamento">Departamento</mat-option>
+          <mat-option value="client">Cliente</mat-option>
+          <mat-option value="dateScheduling">Data/hora agendada</mat-option>
+          <mat-option value="dateInclusion">Data/hora inclusão</mat-option>
+          <mat-option value="departament">Departamento</mat-option>
           <mat-option value="status">Status</mat-option>
-          <mat-option value="tecnico">Técnico</mat-option>
+          <mat-option value="employee">Técnico</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
 
-    <div class="col-4">
-      <mat-form-field class="w-100" appearance="outline">
-        <mat-label>Pesquisa</mat-label>
-        <input matInput />
+    <!--Campo de pesquisa-->
+    <div class="col">
+      <mat-form-field class="w-75" appearance="outline">
+        <mat-label>Pesquisar</mat-label>
+        <input matInput (keyup)="filter($event)">
       </mat-form-field>
     </div>
 
-    <div class="col-6 d-flex justify-content-end align-items-center">
-      <button mat-raised-button color="primary" class="m-0">Abrir chamado</button>
+    <!--Botão para abrir chamado-->
+    <div class="col-2 d-flex justify-content-end align-items-center">
+      <button mat-raised-button color="primary" class="m-0" (click)="goToAddCall()">Abrir chamado</button>
     </div>
   </div>
 
-  <table mat-table class="full-width-table" [dataSource]="call">
-    <!-- Name Column -->
-    <ng-container matColumnDef="name" class="col-6">
-      <th mat-header-cell *matHeaderCellDef>Nome</th>
-      <td mat-cell *matCellDef="let call">{{call.name}}</td>
 
+  <!--Tabela-->
+  <table mat-table class="full-width-table" [dataSource]="dataSource">
+
+    <!--Data de inclusão-->
+    <ng-container matColumnDef="dateInclusion">
+      <th mat-header-cell *matHeaderCellDef>Data/hora de inclusão</th>
+      <td mat-cell *matCellDef="let call">{{call.dateInclusion | date: 'dd/MM/yyyy HH:mm'}}</td>
     </ng-container>
 
-    <!-- CPF/CNPJ Column -->
-    <ng-container matColumnDef="cpfCNPJ" class="col-2">
-      <th mat-header-cell *matHeaderCellDef>CPF/CNPJ</th>
-      <td mat-cell *matCellDef="let call">{{call.cpfCNPJ | cpfCNPJ}}</td>
+    <!--Data de agendamento-->
+    <ng-container matColumnDef="dateScheduling">
+      <th mat-header-cell *matHeaderCellDef>Data/hora de agendamento</th>
+      <td mat-cell *matCellDef="let call">{{call.dateScheduling | date: 'dd/MM/yyyy HH:mm'}}</td>
     </ng-container>
 
-    <!-- Type of Person Column -->
-    <ng-container matColumnDef="typePerson" class="col-2">
-      <th mat-header-cell *matHeaderCellDef>Tipo</th>
-      <td mat-cell *matCellDef="let call" class="text-capitalize">{{call.typePerson}}</td>
+    <!--Status-->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef>Status</th>
+      <td mat-cell *matCellDef="let call" class="text-capitalize">
+        <span class="badge"
+          [ngClass]="{'bg-danger': call.status == 'pendente', 'bg-success': call.status == 'concluido'}">{{call.status}}</span>
+      </td>
     </ng-container>
 
-    <!-- Action Column -->
-    <ng-container matColumnDef="actions" class="col-2">
+    <!--Departamento-->
+    <ng-container matColumnDef="department">
+      <th mat-header-cell *matHeaderCellDef>Departamento</th>
+      <td mat-cell *matCellDef="let call" class="text-capitalize">{{call.department}}</td>
+    </ng-container>
+
+    <!--Cliente-->
+    <ng-container matColumnDef="client">
+      <th mat-header-cell *matHeaderCellDef>Cliente</th>
+      <td mat-cell *matCellDef="let call" class="text-capitalize">{{call.client}}</td>
+    </ng-container>
+
+    <!--Colaborador-->
+    <ng-container matColumnDef="employee">
+      <th mat-header-cell *matHeaderCellDef>Colaborador</th>
+      <td mat-cell *matCellDef="let call" class="text-capitalize">{{call.employee}}</td>
+    </ng-container>
+
+    <!--Ações-->
+    <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef class="text-center">Ações</th>
       <td mat-cell *matCellDef="let call" class="text-center">
         <a routerLink="/calls/view/{{call.id}}">
@@ -60,15 +89,15 @@
         <a routerLink="/calls/edit/{{call.id}}">
           <mat-icon class="icon mx-1">edit</mat-icon>
         </a>
-        <a role="button">
+        <!-- <a (click)="openDialog(call.id)" role="button">
+          <mat-icon class="icon mx-1">delete</mat-icon>
+        </a> -->
+        <a (click)="openDialog(call.id)" role="button">
           <mat-icon class="icon mx-1">delete</mat-icon>
         </a>
-
-        <!-- <button mat-icon-button >
-          <mat-icon class="icon mx-1">delete</mat-icon>
-        </button> -->
       </td>
     </ng-container>
+
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let call; columns: displayedColumns;"></tr>

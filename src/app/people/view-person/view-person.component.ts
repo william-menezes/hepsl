@@ -23,7 +23,7 @@ export class ViewPersonComponent implements OnInit {
   cpfCNPJ!: string;
 
   //Criação do formulário
-  formPerson = this.formBuilder.group({
+  personForm = this.formBuilder.group({
     name: [''],
     typePerson: [''],
     cpfCNPJ: [''],
@@ -52,7 +52,7 @@ export class ViewPersonComponent implements OnInit {
         this.addContact();
       });
 
-      this.formPerson.patchValue(this.person);
+      this.personForm.patchValue(this.person);
     });
   }
 
@@ -63,7 +63,7 @@ export class ViewPersonComponent implements OnInit {
 
   //Pegar a propriedade contato do formulário
   contacts(): FormArray {
-    return this.formPerson.get('contacts') as FormArray;
+    return this.personForm.get('contacts') as FormArray;
   }
 
   //Criar um formgroup do tipo contato

@@ -5,12 +5,12 @@ type department = 'suporte' | 'dev' | 'implantacao' | 'financeiro';
 
 export interface Call {
   id?: number;
-  dateInclusion: number;
-  dateScheduling: number;
+  dateInclusion: Date;
+  dateScheduling: Date;
   department: department;
   client: Person;
   employee: Person;
   status: string;
   description: string;
-  historic: Historic;
+  historic?: Historic;
 }

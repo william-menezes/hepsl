@@ -1,13 +1,14 @@
 <mat-card class="p-4">
   <mat-card-title class="mb-4">Cadastro de chamado</mat-card-title>
   <mat-card-content>
-    <form>
+    <form [formGroup]="callForm" #form="ngForm" (ngSubmit)="onSubmit()">
+
       <div class="row">
         <!--Data/hora de inclusão-->
         <div class="col-md-3">
           <mat-form-field class="w-100" appearance="outline">
             <mat-label>Data/hora de inclusão</mat-label>
-            <input matInput type="datetime-local" />
+            <input matInput type="datetime-local" formControlName="dateInclusion">
           </mat-form-field>
         </div>
 
@@ -15,7 +16,7 @@
         <div class="col-md-3">
           <mat-form-field class="w-100" appearance="outline">
             <mat-label>Data/hora de agendamento</mat-label>
-            <input matInput type="datetime-local" />
+            <input matInput type="datetime-local" formControlName="dateScheduling" />
           </mat-form-field>
         </div>
 
@@ -23,7 +24,7 @@
         <div class="col-md-6">
           <mat-form-field class="w-100" appearance="outline">
             <mat-label>Cliente</mat-label>
-            <input matInput />
+            <input matInput formControlName="client">
           </mat-form-field>
         </div>
       </div>
@@ -33,9 +34,9 @@
         <div class="col-md-4">
           <mat-form-field class="w-100" appearance="outline">
             <mat-label>Departamento</mat-label>
-            <mat-select>
+            <mat-select formControlName="department">
               <mat-option value="suporte">Suporte</mat-option>
-              <mat-option value="desenvolvedor">Desenvolvimento</mat-option>
+              <mat-option value="desenvolvimento">Desenvolvimento</mat-option>
               <mat-option value="implantação">Implantação</mat-option>
               <mat-option value="financeiro">Financeiro</mat-option>
             </mat-select>
@@ -46,7 +47,7 @@
         <div class="col-md-8">
           <mat-form-field class="w-100" appearance="outline">
             <mat-label>Colaborador</mat-label>
-            <input matInput />
+            <input matInput formControlName="employee" />
           </mat-form-field>
         </div>
       </div>
@@ -56,7 +57,7 @@
         <div class="col-md-4">
           <mat-form-field class="w-100" appearance="outline">
             <mat-label>Status</mat-label>
-            <mat-select>
+            <mat-select formControlName="status">
               <mat-option value="pendente">Pendente</mat-option>
               <mat-option value="concluido">Concluído</mat-option>
             </mat-select>
@@ -67,12 +68,12 @@
       <div class="row">
         <mat-form-field class="w-100" appearance="outline">
           <mat-label>Descrição</mat-label>
-          <textarea matInput></textarea>
+          <textarea matInput formControlName="description"></textarea>
         </mat-form-field>
       </div>
     </form>
   </mat-card-content>
 
-  <button mat-raised-button color="primary" class="me-2">Salvar</button>
-  <button mat-raised-button color="secondary" class="me-2">Cancelar</button>
+  <button mat-raised-button color="primary" class="me-2" (click)="onSubmit()">Salvar</button>
+  <button mat-raised-button color="secondary" class="me-2" (click)="resetForm()">Cancelar</button>
 </mat-card>

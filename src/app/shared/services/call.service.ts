@@ -3,50 +3,46 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Person } from '../models/person';
+import { Call } from '../models/call';
 
 @Injectable({
   providedIn: 'root',
 })
-export class PeopleService {
-  private URL = 'http://localhost:3000/people';
+export class CallService {
+  private URL = 'http://localhost:3000/call';
 
   constructor(private http: HttpClient, private snackbar: MatSnackBar) {}
 
-  //Retorna todas as pessoas cadastradas
-  getAll(): Observable<Person[]> {
-    return this.http.get<Person[]>(this.URL).pipe(catchError(this.handleError));
+  //Retorna todos os chamados cadastrado
+  getAll(): Observable<Call[]> {
+    return this.http.get<Call[]>(this.URL).pipe(catchError(this.handleError));
   }
 
-  //Retorna uma pessoa por ID
-  getById(id: string): Observable<Person> {
+  //Retorna um chamado por ID
+  getByID(id: string): Observable<Call> {
     return this.http
-      .get<Person>(`${this.URL}/${id}`)
+      .get<Call>(`${this.URL}/${id}`)
       .pipe(catchError(this.handleError));
   }
 
-  getByType(type: string): Observable<Person> {
-    return this.http.get<Person>(`${this.URL}?typePerson=${type}`);
-  }
-
-  //Adiciona uma pessoa
-  createPerson(person: Person): Observable<Person> {
+  //Adiciona um chamado
+  createCall(call: Call): Observable<Call> {
     return this.http
-      .post<Person>(this.URL, person)
+      .post<Call>(this.URL, call)
       .pipe(catchError(this.handleError));
   }
 
-  //Edita uma pessoa
-  editPerson(id: string, person: Person): Observable<Person> {
+  //Edita um chamado
+  editCall(id: string, call: Call): Observable<Call> {
     return this.http
-      .put<Person>(`${this.URL}/${id}`, person)
+      .put<Call>(`${this.URL}/${id}`, call)
       .pipe(catchError(this.handleError));
   }
 
-  //Deleta uma pessoa
-  deletePerson(id: string) {
+  //Deleta um chamado
+  deleteCall(id: string): Observable<Call> {
     return this.http
-      .delete<Person>(`${this.URL}/${id}`)
+      .delete<Call>(`${this.URL}/${id}`)
       .pipe(catchError(this.handleError));
   }
 

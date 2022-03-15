@@ -1,6 +1,7 @@
-import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm, FormGroup, FormBuilder, FormArray } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+
 import { Person } from 'src/app/shared/models/person';
 import { PeopleService } from 'src/app/shared/services/people.service';
 
@@ -20,8 +21,8 @@ export class EditPersonComponent implements OnInit {
   //Variável para aplicação dos pipes
   cpfCNPJ!: string;
 
-  //Criação do Formulário
-  formPerson = this.formBuilder.group({
+  //Criação do formulário
+  personForm = this.formBuilder.group({
     name: [''],
     typePerson: [''],
     cpfCNPJ: [''],
@@ -34,9 +35,9 @@ export class EditPersonComponent implements OnInit {
 
   constructor(
     private peopleService: PeopleService,
+    private formBuilder: FormBuilder,
     private router: Router,
-    private activatedRoute: ActivatedRoute,
-    private formBuilder: FormBuilder
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -50,7 +51,7 @@ export class EditPersonComponent implements OnInit {
         this.addContact();
       });
 
-      this.formPerson.patchValue(this.person);
+      this.personForm.patchValue(this.person);
     });
   }
 
@@ -66,7 +67,7 @@ export class EditPersonComponent implements OnInit {
 
   //Pegar a propriedade contato do formulário
   contacts(): FormArray {
-    return this.formPerson.get('contacts') as FormArray;
+    return this.personForm.get('contacts') as FormArray;
   }
 
   //Criar um formgroup do tipo contato
@@ -82,18 +83,18 @@ export class EditPersonComponent implements OnInit {
   onSubmit(): void {
     const id = this.activatedRoute.snapshot.paramMap.get('id') || '';
 
-    this.person = this.formPerson.value;
+    this.person = this.personForm.value;
 
     this.peopleService.editPerson(id, this.person).subscribe(() => {
       this.peopleService.showMessage('Pessoa editada com sucesso!');
 
       this.form.resetForm();
 
-      this.router.navigate(['/list']);
+      this.router.navigate(['people/list']);
     });
   }
 
   backToList(): void {
-    this.router.navigate(['/list']);
+    this.router.navigate(['people/list']);
   }
 }
